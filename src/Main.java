@@ -1,19 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        double totalMoneySpent = 13100.15;
-        double currentPurchase = 2000;
+        int totalMoneySpent = 1_475_55;
+        int currentPurchase = 2_345_45;
         totalMoneySpent = totalMoneySpent + currentPurchase;
         int bonusesPerMoneySpent = 0;
-        if (totalMoneySpent <= 15_000) {
-            bonusesPerMoneySpent = 50;
-        } else if (totalMoneySpent > 15_000 && totalMoneySpent <= 150_000) {
-            bonusesPerMoneySpent = 70;
-        } else if (totalMoneySpent > 150_000) {
-            bonusesPerMoneySpent = 100;
+        int sumBlueLevel = 15_000_00;
+        int sumGoldLevel = 150_000_00;
+        int amountBonusesBlueLevel = 50;
+        int amountBonusesSilverLevel = 70;
+        int amountBonusesGoldLevel = 100;
+        if (totalMoneySpent <= sumBlueLevel) {
+            bonusesPerMoneySpent = amountBonusesBlueLevel;
+        } else if (totalMoneySpent > sumBlueLevel && totalMoneySpent <= sumGoldLevel) {
+            bonusesPerMoneySpent = amountBonusesSilverLevel;
+        } else if (totalMoneySpent > sumGoldLevel) {
+            bonusesPerMoneySpent = amountBonusesGoldLevel;
         }
-        int amountForBonus = 1000;
-        int bonusesPerCurrentPurchase = (int) currentPurchase / amountForBonus * bonusesPerMoneySpent;
-        int bonusesPerTotalMoneySpent = (int) totalMoneySpent / amountForBonus * bonusesPerMoneySpent;
+        int amountForBonus = 1_000_00;
+        int bonusesPerCurrentPurchase = currentPurchase / amountForBonus * bonusesPerMoneySpent;
+        int bonusesPerTotalMoneySpent = totalMoneySpent / amountForBonus * bonusesPerMoneySpent;
         System.out.println("За текущую покупку Вам начислено бонусов: " + bonusesPerCurrentPurchase);
         System.out.println("Всего начислено бонусов: " + bonusesPerTotalMoneySpent);
     }
